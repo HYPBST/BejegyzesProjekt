@@ -48,5 +48,10 @@ public class Main {
         }
         System.out.println("Módósítsa a második bejegyzés tartalmát!\nÍrja be az új tartalmat:");
         bejegyzesek.get(1).setTartalom(konzolOlvas.readLine());
+        konzolOlvas.close();
+        for (Bejegyzes b:bejegyzesek
+             ) {
+            System.out.println(b);
+        }
     }
 }
