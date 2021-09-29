@@ -14,7 +14,7 @@ public class Bejegyzes {
         this.tartalom = tartalom;
         this.likeok=0;
         this.letrejott=LocalDateTime.now();
-        this.szerkesztve=LocalDateTime.now();
+        this.szerkesztve=this.letrejott;
     }
 
     public String getSzerzo() {
@@ -48,7 +48,7 @@ public class Bejegyzes {
     @Override
     public String toString() {
         String kiir=this.szerzo+"-"+this.likeok+"-"+this.letrejott+"\n";
-        if (this.szerkesztve!=this.letrejott){
+        if(this.szerkesztve != this.letrejott){
             kiir+="Szerkesztve: "+this.szerkesztve+"\n";
         }
         kiir+=this.tartalom;
