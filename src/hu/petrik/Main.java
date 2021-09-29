@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -15,22 +16,21 @@ public class Main {
         List<Bejegyzes> bejegyzesek=new ArrayList<>();
         bejegyzesek.add(b1);
         bejegyzesek.add(b2);
-        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader konzolOlvas= new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Adja meg az új bejegyzések számát!");
-        int mennyiseg=Integer.parseInt( br.readLine());
+        int mennyiseg=Integer.parseInt( konzolOlvas.readLine());
             while (mennyiseg<=0){
                 System.out.println("Nem lehet nullát, vagy negatív számot beírni!, adj meg egy új számot!");
-                mennyiseg=Integer.parseInt( br.readLine());
+                mennyiseg=Integer.parseInt( konzolOlvas.readLine());
             }
         for (int i = 0; i < mennyiseg; i++) {
             System.out.println("Adja meg a szerzőt");
-            String szerzo = br.readLine();
+            String szerzo = konzolOlvas.readLine();
             System.out.println("Adja meg a tartalmat");
-            String tartalom = br.readLine();
+            String tartalom = konzolOlvas.readLine();
             Bejegyzes b = new Bejegyzes(szerzo, tartalom);
             bejegyzesek.add(b);
         }
-        br.close();
         FileReader fr=new FileReader("bejegyzesek.txt");
         BufferedReader brFile=new BufferedReader(fr);
         String sor=brFile.readLine();
@@ -42,9 +42,9 @@ public class Main {
         }
         brFile.close();
         fr.close();
-        for (Bejegyzes b:bejegyzesek
-             ) {
-            System.out.println(b);
+        Random r=new Random();
+        for (int i = 0; i < bejegyzesek.size()*20; i++) {
+            bejegyzesek.get(r.nextInt(bejegyzesek.size())).like();
         }
     }
 }
