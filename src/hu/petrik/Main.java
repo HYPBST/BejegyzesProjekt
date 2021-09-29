@@ -49,9 +49,15 @@ public class Main {
         System.out.println("Módósítsa a második bejegyzés tartalmát!\nÍrja be az új tartalmat:");
         bejegyzesek.get(1).setTartalom(konzolOlvas.readLine());
         konzolOlvas.close();
+        Bejegyzes legtobbLike=bejegyzesek.get(0);
         for (Bejegyzes b:bejegyzesek
              ) {
             System.out.println(b);
+            if (b.getLikeok()>legtobbLike.getLikeok()){
+                legtobbLike=b;
+            }
         }
+        System.out.println("Legnépszerűbb bejegyzés likejainak száma: "+legtobbLike.getLikeok());
+
     }
 }
