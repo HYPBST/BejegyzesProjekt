@@ -51,7 +51,7 @@ public class Bejegyzes {
         if(this.szerkesztve != this.letrejott){
             kiir+="Szerkesztve: "+this.szerkesztve+"\n";
         }
-        kiir+=this.tartalom;
+        kiir+=this.tartalom+"\n";
         return kiir;
     }
 }

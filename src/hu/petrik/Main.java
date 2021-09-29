@@ -38,7 +38,7 @@ public class Main {
             String[] adatok= sor.strip().split(";");
             Bejegyzes b=new Bejegyzes(adatok[0],adatok[1]);
             bejegyzesek.add(b);
-            sor=br.readLine();
+            sor=brFile.readLine();
         }
         brFile.close();
         fr.close();
