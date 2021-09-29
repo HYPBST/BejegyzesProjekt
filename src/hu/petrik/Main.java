@@ -46,5 +46,7 @@ public class Main {
         for (int i = 0; i < bejegyzesek.size()*20; i++) {
             bejegyzesek.get(r.nextInt(bejegyzesek.size())).like();
         }
+        System.out.println("Módósítsa a második bejegyzés tartalmát!\nÍrja be az új tartalmat:");
+        bejegyzesek.get(1).setTartalom(konzolOlvas.readLine());
     }
 }
