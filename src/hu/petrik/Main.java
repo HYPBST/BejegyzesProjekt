@@ -50,14 +50,23 @@ public class Main {
         bejegyzesek.get(1).setTartalom(konzolOlvas.readLine());
         konzolOlvas.close();
         Bejegyzes legtobbLike=bejegyzesek.get(0);
+        boolean harmincotFelett=false;
         for (Bejegyzes b:bejegyzesek
              ) {
             System.out.println(b);
             if (b.getLikeok()>legtobbLike.getLikeok()){
                 legtobbLike=b;
             }
+            if (b.getLikeok()>35){
+                harmincotFelett=true;
+            }
         }
         System.out.println("Legnépszerűbb bejegyzés likejainak száma: "+legtobbLike.getLikeok());
+        if (harmincotFelett){
+            System.out.println("Van olyan bejegyzés, amely 35 like nál többet kapott.");
+        }else {
+            System.out.println("Nincs olyan bejegyzés, amely 35 like nál többet kapott.");
+        }
 
     }
 }
