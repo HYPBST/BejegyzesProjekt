@@ -47,7 +47,7 @@ public class Bejegyzes {
 
     @Override
     public String toString() {
-        String kiir=this.tartalom+"-"+this.likeok+"-"+this.letrejott+"\n";
+        String kiir=this.szerzo+"-"+this.likeok+"-"+this.letrejott+"\n";
         if (this.szerkesztve!=this.letrejott){
             kiir+="Szerkesztve: "+this.szerkesztve+"\n";
         }
