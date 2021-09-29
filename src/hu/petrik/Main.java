@@ -18,6 +18,10 @@ public class Main {
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Adja meg az új bejegyzések számát!");
         int mennyiseg=Integer.parseInt( br.readLine());
+            while (mennyiseg<=0){
+                System.out.println("Nem lehet nullát, vagy negatív számot beírni!, adj meg egy új számot!");
+                mennyiseg=Integer.parseInt( br.readLine());
+            }
         for (int i = 0; i < mennyiseg; i++) {
             System.out.println("Adja meg a szerzőt");
             String szerzo = br.readLine();
@@ -38,6 +42,9 @@ public class Main {
         }
         brFile.close();
         fr.close();
-
+        for (Bejegyzes b:bejegyzesek
+             ) {
+            System.out.println(b);
+        }
     }
 }
