@@ -1,9 +1,6 @@
 package hu.petrik;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.*;
 
 public class Main {
@@ -75,5 +72,19 @@ public class Main {
              ) {
             System.out.println(b);
         }
+        try{
+            FileWriter fw=new FileWriter("bejegyzesek_rendezett.txt");
+            String szoveg="";
+            for (Bejegyzes b:bejegyzesek
+            ) {
+                szoveg+=b.getSzerzo()+";"+b.getTartalom()+"\n";
+            }
+            fw.write(szoveg);
+            fw.close();
+        }catch (IOException e){
+            System.out.println("Valami baj van.");
+            e.printStackTrace();
+        }
+
     }
 }
