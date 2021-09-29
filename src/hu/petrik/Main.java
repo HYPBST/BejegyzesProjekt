@@ -4,9 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
@@ -51,6 +49,7 @@ public class Main {
         konzolOlvas.close();
         Bejegyzes legtobbLike=bejegyzesek.get(0);
         boolean harmincotFelett=false;
+        int szamol15Alatt=0;
         for (Bejegyzes b:bejegyzesek
              ) {
             System.out.println(b);
@@ -60,6 +59,9 @@ public class Main {
             if (b.getLikeok()>35){
                 harmincotFelett=true;
             }
+            if(b.getLikeok()<15){
+                szamol15Alatt+=1;
+            }
         }
         System.out.println("Legnépszerűbb bejegyzés likejainak száma: "+legtobbLike.getLikeok());
         if (harmincotFelett){
@@ -67,6 +69,11 @@ public class Main {
         }else {
             System.out.println("Nincs olyan bejegyzés, amely 35 like nál többet kapott.");
         }
-
+        System.out.println(szamol15Alatt+ " db olyan bejegyzés van, amelyiknek 15 nél kevesebb like ja van");
+        Collections.sort(bejegyzesek,Comparator.comparing(Bejegyzes::getLikeok).reversed());
+        for (Bejegyzes b:bejegyzesek
+             ) {
+            System.out.println(b);
+        }
     }
 }
